@@ -3,7 +3,7 @@ let myImage = document.querySelector('img');
 myImage.onclick = function() {
     let mySrc = myImage.getAttribute('src');
     if(mySrc === "images/beach_4k_2-2560x1440.jpg") {
-      myImage.setAttribute ('src','images/man_made_cabin_4k_5k_hd-2560x1440.jpg');
+      myImage.setAttribute ('src',"images/man_made_cabin_4k_5k_hd-2560x1440.jpg");
     } else {
       myImage.setAttribute ('src',"images/beach_4k_2-2560x1440.jpg");
     }
