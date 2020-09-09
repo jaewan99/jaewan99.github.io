@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메이플 가계부</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="images/mapleleaf.png">
-    <script src="javascripts/main.js"></script>
-</head>
-<body onload="realtimeClock()">
+function realtimeClock(){
+    var rtClock = new Date();
+    var hours = rtClock.getHours();
+    var minutes = rtClock.getMinutes();
+    var seconds = rtClock.getSeconds();
+
+    var amPm = (hours < 12) ? "AM" : "PM";
+    hours = (hours > 12) ? hours - 12  : hours;
 
 
+    hours = ("0" + hours).slice(-2);
+    minutes = ("0" + minutes).slice(-2);
+    seconds = ("0" + seconds).slice(-2);
 
-  <div class="login-box">
-    <h2>현재 시간</h2>
-    <div id="clock"></div>
-    <h1>Login</h1>
-    <div class="textbox">
-      <i class="fas fa-lock"></i>
-      <input type="password" placeholder="Password">
-    </div>
-  
-    <input type="button" class="btn" value="Sign in">
-  </div>
+    document.getElementById('clock').innerHTML = hours + " : " + minutes + " : " + seconds + " " + amPm;
 
-</body>
-</html>
+    var t = setTimeout(realtimeClock,500);
+
+
+}
