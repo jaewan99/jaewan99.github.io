@@ -1,0 +1,142 @@
+<!--
+// v0 by Vercel.
+// https://v0.dev/t/9pwdA4RlAF4
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="../src/output.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="min-h-screen flex flex-col items-center justify-center text-white p-4" style="background-color: rgba(0,38,77,255);">
+  
+  <div class="bg-ateneo text-gray-800 rounded-lg shadow-lg p-8 w-full max-w-4xl">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-4xl font-bold">Rizal Library Request Form</h1>
+      <div class="flex items-center space-x-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-6 h-6 text-gray-500"
+        >
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span class="text-lg font-semibold">3:45 PM</span>
+      </div>
+    </div>
+    <div class="border-l-4 border-blue-600 pl-4 mb-6">
+      <h2 class="text-2xl font-semibold mb-1">REQUESTOR INFORMATION</h2>
+      <p class="text-sm">Kindly answer all the required fields. (All fields are required unless stated)</p>
+    </div>
+    <form class="space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-medium mb-1">
+          Name of Visitor
+        </label>
+        <input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="name"
+          placeholder="Last Name, First Name, Middle Initial"
+        />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium mb-1">
+          Email Address
+        </label>
+        <input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="email"
+          placeholder="Type here"
+          type="email"
+        />
+      </div>
+      <div>
+        <label for="id-number" class="block text-sm font-medium mb-1">
+          ID Number
+        </label>
+        <input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="id-number"
+          placeholder="Type here"
+        />
+      </div>
+      <div>
+        <label for="affiliation" class="block text-sm font-medium mb-1">
+          Affiliation
+        </label>
+        <input
+          class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="affiliation"
+          placeholder="Name of Company/School"
+        />
+
+        <label for="visitor-type" class="block text-sm font-medium mb-1">
+          Visitor Type
+        </label>
+      </div>
+      <div>
+        
+        <button
+          type="button"
+          role="combobox"
+          aria-controls="radix-:r4h:"
+          aria-expanded="false"
+          aria-autocomplete="none"
+          dir="ltr"
+          data-state="closed"
+          data-placeholder=""
+          class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          id="visitor-type"
+        >
+          <span style="pointer-events: none;">Choose Type</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4 opacity-50"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </button>
+        <select
+          aria-hidden="true"
+          tabindex="-1"
+          style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;"
+        >
+          <option value=""></option>
+        </select>
+      </div>
+      <div class="flex justify-between mt-8">
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 bg-transparent border border-gray-300 text-gray-800">
+          Back
+        </button>
+        <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-yellow-400 text-white">
+          Next
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  
+</body>
+</html>
