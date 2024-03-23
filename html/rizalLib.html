@@ -2,6 +2,9 @@
 
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Rizal Library Request Form</title>
     <!-- bootstrap -->
     <link
@@ -17,9 +20,20 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css"
     />
     <!-- bootstrap icon -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    /> -->
+
+    <!-- bootstrap-datepicker -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+    />
+    <!-- font awesome (for icons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
 
     <!-- custom css -->
@@ -44,18 +58,33 @@
         background-color: #d0ac44;
         border-color: white;
       }
+      /* style for datepicker */
+      #datepicker > span:hover {
+        cursor: pointer;
+      }
+      .datepicker td,
+      th {
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+      .fa {
+        color: #d0ac44;
+      }
     </style>
   </head>
 
   <body style="background-color: rgba(0, 38, 77, 255)" onload="realtimeClock()">
     <nav
-      class="navbar navbar-dark bg-custom p-4 mb-4 rounded-top rounded-5"
-      style="background-color: #093a6e"
+      class="navbar navbar-dark bg-custom p-4 mb-4"
+      style="background-color: #072e57"
     >
       <div class="container-fluid">
         <p class="text-white fs-1 fw-bold mb-0">Ateneo Rizal Library Form</p>
 
-        <span class="text-white fs-1 fw-bold"> <div id="clock"></div> </span>
+        <span class="text-white fs-1 fw-bold d-none d-lg-block">
+          <div id="clock"></div>
+        </span>
       </div>
     </nav>
 
@@ -68,7 +97,7 @@
     <!--                                        forms                                  -->
     <div
       class="container rounded-3 p-3"
-      style="background-color: rgb(243 243 243)"
+      style="background-color: rgb(243 243 243); width: 90%"
     >
       <!-- vertical divider / form color-->
       <div class="border-start border-end border-3 p-4">
@@ -86,7 +115,7 @@
         <div class="offset-md-2">
           <!-- Text input-->
           <div class="mb-4">
-            <p class="fs-5 fw-normal">same input title</p>
+            <p class="fs-5 fw-normal">input title</p>
             <div class="col-md-9">
               <input
                 name="first_name"
@@ -100,7 +129,7 @@
 
           <!-- select input -->
           <div>
-            <div class="col-md-5">
+            <div class="col-md-4">
               <select
                 class="selectpicker bg-white border border-1 rounded mb-4"
                 title="select visitor type"
@@ -147,35 +176,204 @@
             <label for="formFile" class="form-label"></label>
             <input class="form-control" type="file" id="formFile" />
           </div>
-          <!-- end input file -->
-          <div class="row">
-            <!-- start input files -->
-            <div class="mb-4 me-5 col-md-4">
-              <div>
-                <input
-                  name="first_name"
-                  placeholder="First Name"
-                  class="form-control"
-                  type="text"
-                />
-              </div>
-            </div>
-            <!-- end input file -->
-            <!-- start input files -->
-            <div class="mb-4 ms-5 col-md-4">
-              <div>
-                <input
-                  name="first_name"
-                  placeholder="First Name"
-                  class="form-control"
-                  type="text"
-                />
-              </div>
-            </div>
-            <!-- end input file -->
-          </div>
-        </div>
+          <!-- end input files -->
 
+          <!-- for multi-inputs -->
+          <div class="row">
+            <div class="mb-4 col-md-4">
+              <div>
+                <!-- <p class="fs-5 fw-normal">input title</p> -->
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="mb-4 col-md-4 offset-md-1">
+              <!-- <p class="fs-5 fw-normal"> input title</p> -->
+              <div>
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- end  multi-inputs row -->
+
+          <!-- start row -->
+          <div class="row">
+            <div class="mb-4 col-md-3">
+              <div>
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="mb-4 col-md-3">
+              <div>
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="mb-4 col-md-3">
+              <div>
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- end row -->
+          <!-- start calendar input -->
+          <div class="row">
+            <div class="mb-4 col-md-3">
+              <div
+                id="datepicker"
+                class="input-group date"
+                data-date-format="mm-dd-yyyy"
+              >
+                <input class="form-control" type="text" readonly />
+                <span
+                  class="input-group-text bg-white d-block input-group-addon"
+                >
+                  <i class="fa fa-calendar"></i>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <select
+                class="selectpicker bg-white border border-1 rounded mb-4"
+                title=" expected time arrival"
+                data-width="100%"
+              >
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select
+                class="selectpicker bg-white border border-1 rounded mb-4"
+                title=" expected time arrival"
+                data-width="100%"
+              >
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+          </div>
+          <!-- end calendar input -->
+          <!-- for multi-inputs -->
+          <div class="row">
+            <div class="mb-4 col-md-5">
+              <div>
+                <!-- <p class="fs-5 fw-normal">input title</p> -->
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="mb-4 col-md-3 offset-md-1">
+              <!-- <p class="fs-5 fw-normal"> input title</p> -->
+              <div>
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- end  multi-inputs row -->
+          <!-- for multi-inputs -->
+          <div class="row">
+            <div class="mb-4 col-md-3">
+              <div>
+                <!-- <p class="fs-5 fw-normal">input title</p> -->
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class="mb-4 col-md-5 offset-md-1">
+              <!-- <p class="fs-5 fw-normal"> input title</p> -->
+              <div>
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- end  multi-inputs row -->
+          <!-- for multi-inputs -->
+          <div class="row">
+            <div class="mb-4 col-md-3">
+              <div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radioTwo"
+                    id="radioTwo1"
+                    checked
+                  />
+                  <label class="form-check-label" for="radioTwo1">
+                    Default radio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radioTwo"
+                    id="radioTwo2"
+                  />
+                  <label class="form-check-label" for="radioTwo2">
+                    Second default radio
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4 col-md-5 offset-md-1">
+              <!-- <p class="fs-5 fw-normal"> input title</p> -->
+              <div>
+                <input
+                  name="first_name"
+                  placeholder="First Name"
+                  class="form-control"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- end  multi-inputs row -->
+        </div>
         <!-- back and submit button -->
         <div class="mx-3">
           <button type="button" class="btn btn-outline-warning px-4">
@@ -190,40 +388,58 @@
         </div>
       </div>
     </div>
+
+    <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <!-- for showing bootstrap-datepicker -->
+    <script type="text/javascript">
+      var date = new Date();
+      date.setDate(date.getDate());
+      $(function () {
+        $("#datepicker").datepicker({
+          multidate: true,
+          startDate: date,
+        });
+      });
+    </script>
+    <!-- bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <!-- for customizing select form -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/i18n/defaults-*.min.js"></script> -->
+
+    <!-- for using bootstrap-datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- for showing the current time -->
+    <script>
+      function realtimeClock() {
+        var rtClock = new Date();
+        var hours = rtClock.getHours();
+        var minutes = rtClock.getMinutes();
+        var seconds = rtClock.getSeconds();
+
+        var amPm = hours < 12 ? "AM" : "PM";
+        hours = hours > 12 ? hours - 12 : hours;
+
+        hours = ("0" + hours).slice(-2);
+        minutes = ("0" + minutes).slice(-2);
+        seconds = ("0" + seconds).slice(-2);
+
+        document.getElementById("clock").innerHTML =
+          hours + " : " + minutes + " : " + seconds + " " + amPm;
+
+        var t = setTimeout(realtimeClock, 500);
+      }
+    </script>
   </body>
-
-  <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- bootstrap -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"
-  ></script>
-  <!-- for customizing select form -->
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/i18n/defaults-*.min.js"></script>
-  <!-- for showing the current time -->
-  <script>
-    function realtimeClock() {
-      var rtClock = new Date();
-      var hours = rtClock.getHours();
-      var minutes = rtClock.getMinutes();
-      var seconds = rtClock.getSeconds();
-
-      var amPm = hours < 12 ? "AM" : "PM";
-      hours = hours > 12 ? hours - 12 : hours;
-
-      hours = ("0" + hours).slice(-2);
-      minutes = ("0" + minutes).slice(-2);
-      seconds = ("0" + seconds).slice(-2);
-
-      document.getElementById("clock").innerHTML =
-        hours + " : " + minutes + " : " + seconds + " " + amPm;
-
-      var t = setTimeout(realtimeClock, 500);
-    }
-  </script>
 </html>
